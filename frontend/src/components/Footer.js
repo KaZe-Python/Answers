@@ -1,53 +1,38 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import {Link} from 'react-router-dom';
 
-const drawerWidth = 240;
+const useStyles = makeStyles(theme => ({
+  type: {
+    position: "fixed",
+    margin: "0",
+    padding: "0",
+    width: "100%",
+    display:"flex",
+    bottom: "10px",
+    justifyContent: "center",
+  },
+  link: {
+    color: "inherit",
+    textDecoration: "none"
+  }
+}));
 
-function Copyright() {
+function Footer() {
+  const classes = useStyles();
   return (
-    <Typography variant="body2" color="initial" align="center">
-      {'Copyright © '}
-      <Link to={"/"}>
+    <Typography variant="body2" className={classes.type}>
+      Copyright &copy; &nbsp; 
+      <Link to={"/"} className={classes.link}>
         Answer To Question
       </Link>
+      &nbsp;
       {' '}
       {new Date().getFullYear()}
       {'.'}
     </Typography>
   );
 };
-const useStyles = makeStyles(theme => ({
-  appBar: {
-    top: 'auto',
-    bottom: 0,
-    width: '100%',
-    marginLeft: drawerWidth,
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-    marginLeft: 10,
-  },
-  footer: {
-    marginLeft: 20,
-    fontSize: 17,
-  },
-}));
-
-
-
-function Footer() {
-  const classes = useStyles();
-  return (
-    <AppBar position='fixed' className={classes.appBar}>
-      <Copyright />
-    </AppBar>
-  );
-}
 
 export default Footer;

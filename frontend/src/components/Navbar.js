@@ -11,17 +11,18 @@ const useStyles = makeStyles(theme => ({
     appBar: {
         width: '100%',
         marginLeft: 'none',
-      },
-      menuButton: {
+        backgroundColor: "#f58a07",
+    },
+    menuButton: {
         marginRight: theme.spacing(2),
-      },
-      title: {
+    },
+    title: {
         flexGrow: 1,
         anchor: 'right',
-      },
-      linkClass:{
+    },
+    linkClass:{
         textDecoration: 'none',
-      },
+    },
 }));
 
 const Navbar = ({logout, isAuthenticated}) => {
@@ -53,7 +54,7 @@ const Navbar = ({logout, isAuthenticated}) => {
     );
 
     return (
-        <AppBar>
+        <AppBar className={classes.appBar}>
             <Toolbar>
                 <MenuItem component={Link} to={'/'}>
                     <Typography variant='h6' className={classes.title}>
